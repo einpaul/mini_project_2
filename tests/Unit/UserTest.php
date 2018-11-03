@@ -19,23 +19,26 @@ class UserTest extends TestCase
         $this->assertTrue(true);
     }
 
-    public function testInsert()
+    public function addUserToDatabse()
     {
-        $user = factory(User::class)->make();
+        $user = new User();
+        $user->id=52;
+        $user->name='Ein Paul';
+        $user->password = 'Einpaul@123';
+        $user->email = 'einpaul123@example.com';
         $this->assertTrue($user->save());
     }
 
     public function testUpdate()
     {
-        $user = User::find(2);
+        $user = User::latest()->first();
         $user->name='Steve Smith';
         $this->assertTrue($user->save());
     }
 
     public function testDelete()
     {
-        $user = factory(User::class)->create();
-        //$user->delete();
+        $user = User::latest()->first();
         $this->assertTrue($user->delete());
     }
 
