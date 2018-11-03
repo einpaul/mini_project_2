@@ -42,4 +42,13 @@ class CarTest extends TestCase
         $car = Car::latest()->first();
         $this->assertTrue($car->delete());
     }
+
+    public function carCount()
+
+    {
+        $cars= Car::all();
+        $cars->count();
+        $this->assertEquals(50, count($cars), "Should return 50 cars");
+    }
+    
 }
