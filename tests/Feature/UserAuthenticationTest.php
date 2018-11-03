@@ -34,6 +34,7 @@ class UserAuthenticationTest extends TestCase
         ]);
         $response->assertRedirect('/home');
         $this->assertAuthenticatedAs($user);
+        $user->delete();
     }
 
     public function testUserCannotLoginWithIncorrectPassword()

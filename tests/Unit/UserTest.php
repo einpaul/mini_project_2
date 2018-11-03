@@ -27,6 +27,7 @@ class UserTest extends TestCase
         $user->password = 'Einpaul@123';
         $user->email = 'einpaul123@example.com';
         $this->assertTrue($user->save());
+        $user->delete();
     }
 
     public function testUpdate()
@@ -41,6 +42,16 @@ class UserTest extends TestCase
         $user = User::latest()->first();
         $this->assertTrue($user->delete());
     }
+
+    public function testUserCount()
+
+    {
+        //$this->assertTrue(true);
+        $users = User::all();
+        $count= $users->count();
+        $this->assertEquals(50,$count);
+    }
+
 
 }
 
