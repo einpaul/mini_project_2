@@ -19,17 +19,19 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::post('/contact', 'ContactController@create_contact', function () {
+Route::post('/contact', 'ContactController@createContact')->name('contact');
 
 //        $data = request()->all();
 //        echo "Email: ". $data['email']. '<br>';
 //        echo "Body: ". $data['body'];
-});
+
 
 
 Route::get('/', function () {
     return view('pages.index');
 });
+
+Route::get('/about', 'AboutController@about')->name('about');
 
 Route::get('/contact', function () {
     return view('pages.contact');
