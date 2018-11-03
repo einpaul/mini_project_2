@@ -32,5 +32,12 @@ class UserTest extends TestCase
         $this->assertTrue($user->save());
     }
 
+    public function testDelete()
+    {
+        $user = factory(User::class)->create();
+        //$user->delete();
+        $this->assertTrue($user->delete());
+    }
+
 }
 
