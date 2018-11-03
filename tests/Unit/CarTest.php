@@ -50,5 +50,12 @@ class CarTest extends TestCase
         $cars->count();
         $this->assertEquals(50, count($cars), "Should return 50 cars");
     }
-    
+
+    public function checkCarYearIsInteger()
+
+    {
+        $car = Car::latest()->first();
+        print($car->year);
+        $this->assertInternalType('numeric',$car->year);
+    }
 }
