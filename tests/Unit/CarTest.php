@@ -26,4 +26,13 @@ class CarTest extends TestCase
         $car = factory(\App\Car::class)->create();
         $this->assertDatabaseHas('cars', ['make' => $car->make]);
     }
+
+    public function updateCarYear()
+
+    {
+        $car = Car::latest()->first();
+        $car->year = '2000';
+        $car->save();
+        $this->assertDatabaseHas('cars', ["year" => '2000']);
+    }
 }
