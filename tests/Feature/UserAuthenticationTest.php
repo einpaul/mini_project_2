@@ -14,13 +14,13 @@ class UserAuthenticationTest extends TestCase
      *
      * @return void
      */
-    public function testHome()
-
-    {
-        $user = User::find(1);
-        $response = $this->actingAs($user)->get('/login');
-        $response->assertRedirect('/home');
-    }
+//    public function testHome()
+//
+//    {
+//        $user = User::find(1);
+//        $response = $this->actingAs($user)->get('/login');
+//        $response->assertRedirect('/home');
+//    }
 
     public function testUserCanLoginWithCorrectCredentials()
 
