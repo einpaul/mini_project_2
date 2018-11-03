@@ -15,20 +15,15 @@ class UserTest extends TestCase
      * @return void
      */
     public function testExample()
-
     {
         $this->assertTrue(true);
     }
 
-    public function testInsertUser()
+    public function testInsert()
     {
-        $user = new User();
-        $user->id=51;
-        $user->name='Ein Paul';
-        $user->password = 'ein@123';
-        $user->email = 'einpaul@example.com';
+        $user = factory(User::class)->make();
         $this->assertTrue($user->save());
     }
 
-
 }
+
