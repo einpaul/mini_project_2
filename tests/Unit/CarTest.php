@@ -58,4 +58,11 @@ class CarTest extends TestCase
         print($car->year);
         $this->assertInternalType('numeric',$car->year);
     }
+
+    public function testCarsCompany()
+
+    {
+        $car = Car::inRandomOrder()->first();
+        $this->assertContains($car->make, ["Ford","Honda","Toyota"]);
+    }
 }
