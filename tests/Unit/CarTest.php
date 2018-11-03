@@ -35,4 +35,11 @@ class CarTest extends TestCase
         $car->save();
         $this->assertDatabaseHas('cars', ["year" => '2000']);
     }
+
+    public function testDeleteCar()
+
+    {
+        $car = Car::latest()->first();
+        $this->assertTrue($car->delete());
+    }
 }
